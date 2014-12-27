@@ -26,7 +26,7 @@ public class Picture {
                 z = (pixl) & 0xff;                     // blue
 
                 pixels[i][j] = new Pixel(x, y, z);
-
+                
 //                System.out.println(pixels[i][j].toString());
             }
         }

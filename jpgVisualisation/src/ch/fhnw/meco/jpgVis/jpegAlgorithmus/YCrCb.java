@@ -5,33 +5,33 @@ import ch.fhnw.meco.jpgVis.model.Pixel;
 
 public class YCrCb {
 
-    public void convertToYCrCb() {
-        int r, g, b;
-        float r1, b1, g1, Y, Cb, Cr;
+	public void convertToYCrCb() {
+		int r, g, b;
+		float r1, b1, g1, Y, Cb, Cr;
 
-        for (int i = 0; i < Picture.SIZE; i++) {
-            for (int j = 0; j < Picture.SIZE; j++) {
-                r = Picture.getPPixel(i, j).getX();
-                g = Picture.getPPixel(i, j).getY();
-                b = Picture.getPPixel(i, j).getZ();
-                // Conversion from integer to float
-                Y = (float) (0.299 * r + 0.587 * g + 0.114 * b);
-                Cb = (float) (128 + (-0.169 * r - 0.331 * g + 0.500 * b));
-                Cr = (float) (128 + (0.500 * r - 0.419 * g - 0.081 * b));
-                // brauchts das?
-                r1 = (float) (Y + 1.140 * Cr);
-                g1 = (float) (Y - 0.344 * Cb - 0.714 * Cr);
-                b1 = (float) (Y + 1.773 * Cb);
-                // Conversion from float to integer
-                Picture.setPPixel(new Pixel(Math.round(Cr), Math.round(Cb), Math.round(Y)), i, j);
-            }
-        }
+		for (int i = 0; i < Picture.SIZE; i++) {
+			for (int j = 0; j < Picture.SIZE; j++) {
+				r = Picture.getPPixel(i, j).getX();
+				g = Picture.getPPixel(i, j).getY();
+				b = Picture.getPPixel(i, j).getZ();
+				// Conversion from integer to float
+				Y = (float) (0.299 * r + 0.587 * g + 0.114 * b);
+				Cb = (float) (128 + (-0.169 * r - 0.331 * g + 0.500 * b));
+				Cr = (float) (128 + (0.500 * r - 0.419 * g - 0.081 * b));
+				// brauchts das?
+				r1 = (float) (Y + 1.140 * Cr);
+				g1 = (float) (Y - 0.344 * Cb - 0.714 * Cr);
+				b1 = (float) (Y + 1.773 * Cb);
+				// Conversion from float to integer
+				Picture.setPPixel(new Pixel(Math.round(Cr), Math.round(Cb), Math.round(Y)), i, j);
+			}
+		}
 
-    }
+	}
 
-    public void chromaSubsampling(double ratio) {
+	public void chromaSubsampling(double ratio) {
 
-    }
+	}
 }
 
 
